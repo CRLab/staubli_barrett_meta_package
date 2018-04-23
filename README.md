@@ -77,10 +77,10 @@ $ roslaunch staubli_barretthand_bringup staubli_barretthand_planners.launch
 ```
 
 ## Notes
-The configuration for the Staubli arm is set up assuming that the robot is connected on your network at 192.168.1.254. The robot is configured to broadcast a static IP on a local router at this IP address. If you want to change this setting you'll have to reconfigure the robot by going into the settings for the robot. Go to `Control Panel` > `Controller configuration` > `Network` > `J204 IP address` > `Address`. Press the <kbd>↵</bkd> key to edit the field and type out the IP you want to use. The images shown below show my settings for a local IP address. Make sure in your router configuration that you have set the subnet mask to `255.255.255.0` and not reserved `192.168.1.254` by changing the range to `1-253` or lower. 
+The configuration for the Staubli arm is set up assuming that the robot is connected on your network at 192.168.1.254. The robot is configured to broadcast a static IP on a local router at this IP address. If you want to change this setting you'll have to reconfigure the robot by going into the settings for the robot. Go to `Control Panel` > `Controller configuration` > `Network` > `J204 IP address` > `Address`. Press the <kbd>↵</kbd> key to edit the field and type out the IP you want to use. The images shown below show my settings for a local IP address. Make sure in your router configuration that you have set the subnet mask to `255.255.255.0` and not reserved `192.168.1.254` by changing the range to `1-253` or lower. 
 
 #### Control Panel
-![Control panel](_images/control_panel.png "Control panel")
+<img src="./_images/control_panel.png" />
 
 #### Controller Configuration
 ![Controller Configuration](_images/controller_configuration.png "Controller Configuration")
