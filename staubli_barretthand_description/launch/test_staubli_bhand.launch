@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find staubli_barretthand_description)/launch/upload_staubli_bhand.launch"/>
+  	<param name="use_gui" value="true" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find staubli_description)/urdf.rviz" required="true" />
+</launch>

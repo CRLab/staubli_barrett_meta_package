@@ -45,3 +45,7 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# Gitman stuff
+staubli_ros/*
+barrett_hand_ros/*

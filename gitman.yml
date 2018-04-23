@@ -1,0 +1,10 @@
+location: .
+sources:
+
+# Barrett includes
+- name: barrett_hand_ros
+  repo: 'https://github.com/CRLab/barrett_hand_ros.git'
+  rev: master
+- name: staubli_ros
+  repo: 'https://github.com/CRLab/staubli_ros.git'
+  rev: master

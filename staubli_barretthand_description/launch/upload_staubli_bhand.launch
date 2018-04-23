@@ -1,0 +1,9 @@
+<launch>  
+  <arg name="prefix" default="/" />
+  <arg name="arm_to_hand_calib_xacro" default="$(find staubli_barretthand_description)/config/arm_to_hand_calib.xacro"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find staubli_barretthand_description)/urdf/staubli_bhand.xacro' arm_to_hand_xacro:=$(arg arm_to_hand_calib_xacro) prefix:='$(arg prefix)'" />
+
+
+
+</launch>

@@ -1,0 +1,19 @@
+controller_list:
+  - name: fake_StaubliArm_controller
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+  - name: fake_BarrettHand_controller
+    joints:
+      - bh_j11_joint
+      - bh_j12_joint
+      - bh_j13_joint
+      - bh_j21_joint
+      - bh_j22_joint
+      - bh_j23_joint
+      - bh_j32_joint
+      - bh_j33_joint

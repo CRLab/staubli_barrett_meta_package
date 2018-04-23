@@ -1,0 +1,284 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="staubli_bhand">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="StaubliArm">
+      <chain base_link="staubli_rx60l_link1"  tip_link="staubli_rx60l_link7" /> 
+    </group>
+    <group name="BarrettHand">
+      <link name="bh_base_link" />
+        <link name="bh_finger_11_link" />
+        <link name="bh_finger_12_link" />
+        <link name="bh_finger_13_link" />
+        <link name="bh_finger_21_link" />
+        <link name="bh_finger_22_link" />
+        <link name="bh_finger_23_link" />
+        <link name="bh_finger_32_link" />
+        <link name="bh_finger_33_link" />
+    </group>
+
+    <group_state name="home" group="StaubliArm">
+      <joint name="joint_1" value="0" />
+      <joint name="joint_2" value="0" />
+      <joint name="joint_3" value="0" />
+      <joint name="joint_4" value="0" />
+      <joint name="joint_5" value="0" />
+      <joint name="joint_6" value="0" />
+    </group_state>
+
+<!--     <group_state name="presmack" group="StaubliArm">
+      <joint name="joint_1" value="0.8677783174990157" />
+      <joint name="joint_2" value="-0.6279648144505635" />
+      <joint name="joint_3" value="-1.8938146652397458" />
+      <joint name="joint_4" value="1.768221399535392" />
+      <joint name="joint_5" value="1.6002746609496237" />
+      <joint name="joint_6" value="0.4645434909357887" />
+    </group_state>
+
+    <group_state name="postsmack" group="StaubliArm">
+      <joint name="joint_1" value="0.5167048198606308" />
+      <joint name="joint_2" value="-0.6279648144505635" />
+      <joint name="joint_3" value="-1.8938146652397458" />
+      <joint name="joint_4" value="1.768221399535392" />
+      <joint name="joint_5" value="1.6002746609496237" />
+      <joint name="joint_6" value="0.4645434909357887" />
+    </group_state> -->
+
+    <group_state name="presmack" group="StaubliArm">
+      <joint name="joint_1" value="0.8677783174990157" />
+      <joint name="joint_2" value="-0.8060459233836393" />
+      <joint name="joint_3" value="-1.8937222957615758" />
+      <joint name="joint_4" value="1.775762382240382" />
+      <joint name="joint_5" value="1.5959506879282834" />
+      <joint name="joint_6" value="0.7435334913161438" />
+    </group_state>
+
+    <group_state name="smack" group="StaubliArm">
+      <joint name="joint_1" value="0.5167048198606308" />
+      <joint name="joint_2" value="-0.8060459233836393" />
+      <joint name="joint_3" value="-1.8937222957615758" />
+      <joint name="joint_4" value="1.775762382240382" />
+      <joint name="joint_5" value="1.5959506879282834" />
+      <joint name="joint_6" value="0.7435334913161438" />
+    </group_state>
+
+    <group_state name="postsmack" group="StaubliArm">
+      <joint name="joint_1" value="0.5167048198606308" />
+      <joint name="joint_2" value="-0.8060459233836393" />
+      <joint name="joint_3" value="-1.8937222957615758" />
+      <joint name="joint_4" value="1.775762382240382" />
+      <joint name="joint_5" value="1.5959506879282834" />
+      <joint name="joint_6" value="0.7435334913161438" />
+    </group_state>
+
+    <group_state name="prepick_position" group="StaubliArm">
+      <joint name="joint_1" value="0.10191331763781102" />
+      <joint name="joint_2" value="-0.4133945782377517" />
+      <joint name="joint_3" value="-1.396951600987485" />
+      <joint name="joint_4" value="-3.162836481854599" />
+      <joint name="joint_5" value="1.3431182110920605" />
+      <joint name="joint_6" value="2.833030260690407" />
+    </group_state>
+
+    <group_state name="postpick_position" group="StaubliArm">
+      <joint name="joint_1" value="0.10191331763781102" />
+      <joint name="joint_2" value="-0.27255673725647644" />
+      <joint name="joint_3" value="-1.4228733910853102" />
+      <joint name="joint_4" value="-3.15608228640496" />
+      <joint name="joint_5" value="1.4428651244494233" />
+      <joint name="joint_6" value="2.8250154114653427" />
+    </group_state>
+
+    <!-- <group_state name="slight_spread" group="BarrettHand"> -->
+    <!--   <joint name="bh_j11_joint" value="2.78" /> <!-- Spread -->
+    <!--   <joint name="bh_j12_joint" value="0.0" /> <!-- Finger 1 Proximal -->
+    <!--   <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+    <!--   <joint name="bh_j21_joint" value="2.78" /> <!-- Spread -->
+    <!--   <joint name="bh_j22_joint" value="0.0" /> <!-- Finger 2 Proximal -->
+    <!--   <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+    <!--   <joint name="bh_j32_joint" value="0.0" /> <!-- Finger 3 Proximal -->
+    <!--   <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    <!-- </group_state> -->
+
+    <group_state name="slight_spread" group="BarrettHand">
+      <joint name="bh_j11_joint" value="3.045" /> <!-- Spread -->
+      <joint name="bh_j12_joint" value="0.0" /> <!-- Finger 1 Proximal -->
+      <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+      <joint name="bh_j21_joint" value="3.045" /> <!-- Spread -->
+      <joint name="bh_j22_joint" value="0.0" /> <!-- Finger 2 Proximal -->
+      <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+      <joint name="bh_j32_joint" value="0.0" /> <!-- Finger 3 Proximal -->
+      <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    </group_state>
+
+    <group_state name="three_together" group="BarrettHand">
+      <joint name="bh_j11_joint" value="3.14" /> <!-- Spread -->
+      <joint name="bh_j12_joint" value="0.0" /> <!-- Finger 1 Proximal -->
+      <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+      <joint name="bh_j21_joint" value="3.14" /> <!-- Spread -->
+      <joint name="bh_j22_joint" value="0.0" /> <!-- Finger 2 Proximal -->
+      <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+      <joint name="bh_j32_joint" value="0.0" /> <!-- Finger 3 Proximal -->
+      <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    </group_state>
+
+    <group_state name="feel_object" group="BarrettHand">
+      <joint name="bh_j11_joint" value="3.045" /> <!-- Spread -->
+      <joint name="bh_j12_joint" value="1.0" /> <!-- Finger 1 Proximal -->
+      <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+      <joint name="bh_j21_joint" value="3.045" /> <!-- Spread -->
+      <joint name="bh_j22_joint" value="1.0" /> <!-- Finger 2 Proximal -->
+      <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+      <joint name="bh_j32_joint" value="1.0" /> <!-- Finger 3 Proximal -->
+      <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    </group_state>
+
+    <group_state name="open" group="BarrettHand">
+      <joint name="bh_j11_joint" value="0.0" /> <!-- Spread -->
+      <joint name="bh_j12_joint" value="0.0" /> <!-- Finger 1 Proximal -->
+      <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+      <joint name="bh_j21_joint" value="0.0" /> <!-- Spread -->
+      <joint name="bh_j22_joint" value="0.0" /> <!-- Finger 2 Proximal -->
+      <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+      <joint name="bh_j32_joint" value="0.0" /> <!-- Finger 3 Proximal -->
+      <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    </group_state>
+
+    <group_state name="close" group="BarrettHand">
+      <joint name="bh_j11_joint" value="0.0" /> <!-- Spread -->
+      <joint name="bh_j12_joint" value="2.44" /> <!-- Finger 1 Proximal -->
+      <joint name="bh_j13_joint" value="0.0" /> <!-- Finger 1 Distal -->
+      <joint name="bh_j21_joint" value="0.0" /> <!-- Spread -->
+      <joint name="bh_j22_joint" value="2.44" /> <!-- Finger 2 Proximal -->
+      <joint name="bh_j23_joint" value="0.0" /> <!-- Finger 2 Distal -->
+      <joint name="bh_j32_joint" value="2.44" /> <!-- Finger 3 Proximal -->
+      <joint name="bh_j33_joint" value="0.0" /> <!-- Finger 3 Distal -->
+    </group_state>
+
+
+    
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="BarrettHandEE" parent_link="staubli_rx60l_link7" group="BarrettHand" parent_group="StaubliArm" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="barrett_mount_link" link2="staubli_rx60l_link3" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="staubli_rx60l_link4" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="staubli_rx60l_link5" reason="Default" />
+    <disable_collisions link1="barrett_mount_link" link2="staubli_rx60l_link6" reason="Default" />
+    <disable_collisions link1="barrett_mount_link" link2="staubli_rx60l_link7" reason="Adjacent" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_base_link" reason="Default" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_11_link" reason="Always" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_21_link" reason="Default" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="barrett_mount_link" link2="wrist_load_cell" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link1" link2="staubli_rx60l_link2" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link1" link2="staubli_rx60l_link6" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link1" link2="staubli_rx60l_link7" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link1" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link2" link2="staubli_rx60l_link3" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link2" link2="staubli_rx60l_link4" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link2" link2="staubli_rx60l_link5" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link2" link2="staubli_rx60l_link6" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link2" link2="staubli_rx60l_link7" reason="Always" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="staubli_rx60l_link4" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="staubli_rx60l_link5" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="staubli_rx60l_link6" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="staubli_rx60l_link7" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_base_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_11_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link3" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="staubli_rx60l_link5" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="staubli_rx60l_link6" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="staubli_rx60l_link7" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="bh_base_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="bh_finger_11_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link4" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="staubli_rx60l_link6" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="staubli_rx60l_link7" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_base_link" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_11_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link5" link2="wrist_load_cell" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="staubli_rx60l_link7" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_base_link" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_11_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link6" link2="wrist_load_cell" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_base_link" reason="Adjacent" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_11_link" reason="Always" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_21_link" reason="Default" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="staubli_rx60l_link7" link2="wrist_load_cell" reason="Adjacent" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_13_link" reason="Never" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_12_link" reason="Never" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_11_link" reason="Adjacent" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_21_link" reason="Adjacent" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="bh_base_link" link2="bh_finger_32_link" reason="Adjacent" />
+    <disable_collisions link1="bh_base_link" link2="wrist_load_cell" reason="Default" />
+    <disable_collisions link1="bh_finger_13_link" link2="bh_finger_12_link" reason="Adjacent" />
+    <disable_collisions link1="bh_finger_13_link" link2="bh_finger_11_link" reason="Never" />
+    <disable_collisions link1="bh_finger_13_link" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="bh_finger_13_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_12_link" link2="bh_finger_11_link" reason="Adjacent" />
+    <disable_collisions link1="bh_finger_12_link" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="bh_finger_12_link" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="bh_finger_12_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="bh_finger_23_link" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="bh_finger_22_link" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="bh_finger_11_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_23_link" link2="bh_finger_22_link" reason="Adjacent" />
+    <disable_collisions link1="bh_finger_23_link" link2="bh_finger_21_link" reason="Never" />
+    <disable_collisions link1="bh_finger_23_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_22_link" link2="bh_finger_21_link" reason="Adjacent" />
+    <disable_collisions link1="bh_finger_22_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_21_link" link2="bh_finger_33_link" reason="Never" />
+    <disable_collisions link1="bh_finger_21_link" link2="bh_finger_32_link" reason="Never" />
+    <disable_collisions link1="bh_finger_21_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_33_link" link2="bh_finger_32_link" reason="Adjacent" />
+    <disable_collisions link1="bh_finger_33_link" link2="wrist_load_cell" reason="Never" />
+    <disable_collisions link1="bh_finger_32_link" link2="wrist_load_cell" reason="Never" />
+
+    
+</robot>

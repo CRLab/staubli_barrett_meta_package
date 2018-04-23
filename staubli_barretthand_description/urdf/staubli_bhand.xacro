@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="staubli_bhand">
+<!-- Calibration for arm to barrett hand -->
+<xacro:include filename="$(arg arm_to_hand_xacro)" />
+  <!-- Include staubli robot -->
+<xacro:include filename="$(find staubli_description)/urdf/tx60l_macro.xacro"/>
+ <!-- Include Barrett Hand robot -->
+<xacro:include filename="$(find barrett_hand_description)/urdf/bh280.urdf.xacro" />
+
+<!-- Include the barrett hands mount on the staubli -->
+<xacro:include filename="$(find staubli_barretthand_description)/urdf/barrett_hand_mount.urdf.xacro"/>
+
+  <xacro:macro name="staubli_bhand" params="prefix">
+    <!-- invoke stuabli macro -->
+    <xacro:staubli_rx60l prefix="${prefix}"/>
+
+    <!-- Barrett Hand Mount -->
+      <xacro:barrett_hand_mount prefix="${prefix}" parent="${prefix}staubli_rx60l_link7" length="0.0775" radius="0.05" barrett_mount_width="0.15" barrett_mount_height=".03"/>
+
+      <!-- BHand -->
+    <!--<xacro:bhand prefix="bhand" parent_link="${prefix}staubli_rx60l_link7" xyz="${hand_xyz_offset}" rpy="${hand_rpy_offset}"/>-->
+        <xacro:bhand_macro name="bh" parent="${prefix}staubli_rx60l_link7">
+                <origin xyz="${hand_xyz_offset}" rpy="${hand_rpy_offset}" />
+        </xacro:bhand_macro>
+
+
+  </xacro:macro>
+  <xacro:staubli_bhand prefix=""/>
+</robot>

@@ -1,0 +1,75 @@
+joint_limits:
+  joint_5:
+    max_position: 1.86
+    min_position: -1.76
+    has_velocity_limits: true
+    max_velocity: 5.585053606
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_2:
+    has_velocity_limits: true
+    max_velocity: 5.009094953
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j13_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j32_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_3:
+    has_velocity_limits: true
+    max_velocity: 5.567600314
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j21_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j11_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_6:
+    max_position: 6
+    min_position: -6.428
+    has_velocity_limits: true
+    max_velocity: 12.217304764
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j23_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_1:
+    has_velocity_limits: true
+    max_velocity: 5.009094953
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_4:
+    has_velocity_limits: true
+    max_velocity: 7.155849933
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j12_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
+  bh_j33_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0 
+  bh_j22_joint:
+    has_velocity_limits: true
+    max_velocity: 0.01
+    has_acceleration_limits: false
+    max_acceleration: 0
