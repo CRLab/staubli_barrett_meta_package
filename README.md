@@ -83,19 +83,19 @@ The configuration for the Staubli arm is set up assuming that the robot is conne
 <img src="./_images/control_panel.png" />
 
 #### Controller Configuration
-![Controller Configuration](_images/controller_configuration.png "Controller Configuration")
+<img src="https://raw.githubusercontent.com/CRLab/staubli_barrett_meta_package/master/_images/controller_configuration.jpg" />
 
 #### Network
-![Network](_images/network.png "Network")
+<img src="https://raw.githubusercontent.com/CRLab/staubli_barrett_meta_package/master/_images/network.jpg" />
 
 #### J204 Config
-![J204 Config](_images/J204.png "J204 Config")
+<img src="https://raw.githubusercontent.com/CRLab/staubli_barrett_meta_package/master/_images/J204.jpg" />
 
 #### IP Settings
-![IP Settings](_images/IP_settings.png "IP Settings")
+<img src="https://raw.githubusercontent.com/CRLab/staubli_barrett_meta_package/master/_images/IP_settings.jpg" />
 
 #### Edit IP Address
-![Edit IP Address](_images/edit_IP.png "Edit IP Address")
+<img src="https://raw.githubusercontent.com/CRLab/staubli_barrett_meta_package/master/_images/edit_IP.jpg" />
 
 
 ## Sources
