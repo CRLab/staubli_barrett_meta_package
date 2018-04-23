@@ -57,11 +57,46 @@ $ cd <catkin_ws>/src
 $ git clone https://github.com/CRLab/staubli_barrett_meta_package.git
 $ cd staubli_barrett_meta_package
 $ gitman install
-$ cd <catkin_ws>/src
+$ cd <catkin_ws>
+$ catkin build
+```
+
+## Running
+In order to bring up the arm and hand together, I created one launch file `staubli_barretthand_bringup.launch` under the `staubli_barretthand_bringup` package.
+```bash
+$ roslaunch staubli_barretthand_bringup staubli_barretthand_bringup.launch
+```
+If you want to run the force torque sensor too, run this:
+```bash
+$ roslaunch staubli_barretthand_bringup staubli_barretthand_bringup_ft.launch
+```
+
+To run the MoveIt! planners then run
+```bash
+$ roslaunch staubli_barretthand_bringup staubli_barretthand_planners.launch
 ```
 
 ## Notes
-The configuration for the Staubli arm is set up assuming that the robot is connected on your network at 192.168.1.254. The robot is configured to broadcast a static IP on a local router at this IP address. If you want to change this setting you'll have to reconfigure the robot by going into the settings for the robot. Go to `Control Panel` > `Controller configuration` > `Network` > `J204 IP address` > `Address`. Press the <kbd>↵<bkd> key to edit the field and type out the IP you want to use. The images shown below show my settings for a local IP address. Make sure in your router configuration that you have set the subnet mask to `255.255.255.0` and not reserved `192.168.1.254` by changing the range to `1-253` or lower. 
+The configuration for the Staubli arm is set up assuming that the robot is connected on your network at 192.168.1.254. The robot is configured to broadcast a static IP on a local router at this IP address. If you want to change this setting you'll have to reconfigure the robot by going into the settings for the robot. Go to `Control Panel` > `Controller configuration` > `Network` > `J204 IP address` > `Address`. Press the <kbd>↵</bkd> key to edit the field and type out the IP you want to use. The images shown below show my settings for a local IP address. Make sure in your router configuration that you have set the subnet mask to `255.255.255.0` and not reserved `192.168.1.254` by changing the range to `1-253` or lower. 
+
+#### Control Panel
+![Control panel](_images/control_panel.png "Control panel")
+
+#### Controller Configuration
+![Controller Configuration](_images/controller_configuration.png "Controller Configuration")
+
+#### Network
+![Network](_images/network.png "Network")
+
+#### J204 Config
+![J204 Config](_images/J204.png "J204 Config")
+
+#### IP Settings
+![IP Settings](_images/IP_settings.png "IP Settings")
+
+#### Edit IP Address
+![Edit IP Address](_images/edit_IP.png "Edit IP Address")
+
 
 ## Sources
 This repo is replacing quite a few old staubli/barrett repos which are now defunct/were disorganized. They have subsequently been archived.

@@ -1,0 +1,6 @@
+<launch>
+        <include file="$(find staubli_barretthand_bringup)/launch/staubli_barretthand_bringup.launch"/>
+
+        <node name="force_torque_server" pkg="force_torque_server" type="force_torque_server" output="screen"/>
+
+</launch>

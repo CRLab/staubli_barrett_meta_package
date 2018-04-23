@@ -1,0 +1,43 @@
+<launch>
+
+    <!-- Upload the description for the staubli arm and barretthand -->
+    <include file="$(find staubli_barretthand_description)/launch/upload_staubli_bhand.launch"/>
+
+    <!-- Staubli TX60 Controller launch -->
+    <include file="$(find staubli_tx60)/launch/staubli.launch"/>
+
+    <!-- Barrett hand controller -->
+    <include file="$(find bhand_controller)/launch/bhand_controller.launch"/>
+
+    <!-- Barrett hand action server -->
+    <node name="barrett_trajectory_action_server" pkg="barrett_trajectory_action_server" type="barrett_follow_trajectory_as.py" output="screen"/>
+
+    <!-- This was here from before. Have to affirm how necessary this is given that curpp exists now -->
+    <rosparam>
+        "/move_group/trajectory_execution/allowed_start_tolerance": 0.08
+        "analyze_grasp_topic": "analyze_grasp_action"
+        "move_group_name": "StaubliArm"
+        "end_effector_name": "BarrettHand"
+        "reachability_analyzer/planner_config_name": "[RRTConnectkConfigDefault]"
+        "reachability_analyzer/allowed_planning_time": 20
+        "pre_grasp_goal_point.effort": [50,50, 50, 50]
+        "pre_grasp_goal_point.positions": [0.0, 0.0, 0.0, 0.0]
+        "pre_grasp_goal_point.time_from_start.secs": 0
+        "pre_grasp_joint_names": ['bh_j11_joint', 'bh_j12_joint', 'bh_j22_joint', 'bh_j32_joint']
+        "grasp_goal_point.effort": [50,50,50, 50]
+        "grasp_goal_point.time_from_start.secs": 0
+        "moveit_grasp.grasp_posture.joint_names": ['bh_j11_joint', 'bh_j12_joint', 'bh_j22_joint', 'bh_j32_joint']
+        "moveit_grasp.pre_grasp_approach.min_distance": 0.08     # min_distance must always be less than desired_distance!
+        "moveit_grasp.pre_grasp_approach.desired_distance": 0.1
+        "moveit_grasp.pre_grasp_approach.direction.header.frame_id": "/staubli_rx60l_link7"
+        "moveit_grasp.post_grasp_retreat.min_distance": 0.05     # min_distance must always be less than desired_distance!
+        "moveit_grasp.post_grasp_retreat.desired_distance": 0.1
+        "moveit_grasp.post_grasp_retreat.direction.header.frame_id": "/staubli_rx60l_link1"
+        "moveit_grasp.post_grasp_retreat.direction.vector.x": 0
+        "moveit_grasp.post_grasp_retreat.direction.vector.y": 0
+        "moveit_grasp.post_grasp_retreat.direction.vector.z": 1
+        "moveit_grasp.max_contact_force": -1
+    </rosparam>
+
+
+</launch>

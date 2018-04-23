@@ -1,0 +1,8 @@
+<launch>
+  
+  <arg name="use_robot_hw" default="True"/>
+  <arg name="robot" default="staubli"/>
+
+  <include file="$(find staubli_barretthand_moveit_config)/launch/staubli_bhand_rviz_interface.launch"></include>
+
+</launch>
