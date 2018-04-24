@@ -51,6 +51,11 @@ $ python3.5 get-pip.py --user
 $ pip3 install gitman==1.5b1
 ```
 
+If you haven't already, make sure you activate your user account for access to the force torque sensor by adding your user to the telnet group:
+```bash
+$ sudo usermod -a -G dialout $USER
+```
+
 This tutorial assumes you have a workspace already created. In the instructions I will be titled it <catkin_ws>
 ```bash
 $ cd <catkin_ws>/src
